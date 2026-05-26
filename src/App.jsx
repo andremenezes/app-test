@@ -11,9 +11,12 @@ function formatDate(isoDate) {
 
 function App() {
   const [articles, setArticles] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchTopHeadlines().then(setArticles)
+    fetchTopHeadlines()
+      .then(setArticles)
+      .finally(() => setLoading(false))
   }, [])
 
   return (
@@ -21,6 +24,10 @@ function App() {
       <header className="header">
         <h1>Bem-vindo ao AppTest</h1>
       </header>
+
+      {!loading && articles.length === 0 && (
+        <p className="empty-message">Não foi possível carregar os dados.</p>
+      )}
 
       <section className="articles">
         {articles.map((article) => (
