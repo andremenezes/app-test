@@ -17,6 +17,13 @@
   letter-spacing: -0.03em;
 }
 
+.empty-message {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.9375rem;
+  margin: 0 0 2rem;
+}
+
 .articles {
   display: flex;
   flex-direction: column;
